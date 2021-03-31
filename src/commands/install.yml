@@ -1,0 +1,13 @@
+description: >
+  Install SOPS to your job environment
+parameters:
+  version:
+    type: string
+    default: 3.6.1
+    description: Version to be installed
+steps:
+  - run:
+      environment:
+        SOPS_VER: <<parameters.version>>
+      name: Install SOPS
+      command: <<include(scripts/install.sh)>>
